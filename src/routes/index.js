@@ -13,16 +13,16 @@ routes.use((request, response, next) => {
   const authHeader = request.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  if (!token) {
-    return response.status(401).json({ message: "Token not provided" });
-  }
+  // if (!token) {
+  //   return response.status(401).json({ message: "Token not provided" });
+  // }
 
-  try {
-    const decoded = jwt.verify(token, process.env.PRIVATE_KEY);
-    request.user = decoded;
-  } catch (err) {
-    return response.status(401).json({ message: "Token invalid" });
-  }
+  // try {
+  //   const decoded = jwt.verify(token, process.env.PRIVATE_KEY);
+  //   request.user = decoded;
+  // } catch (err) {
+  //   return response.status(401).json({ message: "Token invalid" });
+  // }
 
   next();
 });

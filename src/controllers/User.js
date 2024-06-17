@@ -47,8 +47,7 @@ class UserController {
         email,
         password: hashedPassword,
       });
-  
-  
+
       return response.status(201).json(user);
       
     } catch (error) {
@@ -102,7 +101,6 @@ class UserController {
       if (!(await compare(password, user.password))) {
         return response.status(401).json({ message: "Senha incorreta" });
       }
-
 
       const token = jwt.sign(
         { user: JSON.stringify(user) },
